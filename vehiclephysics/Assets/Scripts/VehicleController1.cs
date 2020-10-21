@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class VehicleController1 : MonoBehaviour
 {
+    ParticleSystem BoxExplode1;
+    private GameObject Box;
     private float verticalInput;
     private float horizontalInput;
     private Rigidbody chassis;
     public float forceImpulse;
     public float torqueImpulse;
+
+   
 
     VehicleController1()
     {
@@ -57,6 +61,8 @@ public class VehicleController1 : MonoBehaviour
         }
     }
 
+  
+
     // Get use input
     void GetKeys()
     {
@@ -70,9 +76,16 @@ public class VehicleController1 : MonoBehaviour
         if(collision.gameObject.tag == "Box")
         {
             Debug.Log("CollisionSuccess");
-           // ParticleSystem part = GetComponent<ParticleSystem>;
+           
             Destroy(GameObject.FindWithTag("Box"));
-            
+
+            //BoxExplode1.Emit(1);
+
+            BoxExplode1 = Instantiate(BoxExplode1, Box.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+
+            // ParticleSystem part = GetComponent<ParticleSystem>; 
         }
+
+       
     }
 }
