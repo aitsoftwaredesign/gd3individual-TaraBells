@@ -52,10 +52,10 @@ public class VehicleControl : MonoBehaviour
         Vector3 currentUp = transform.up;
         //Utils.DrawArrow(transform.position, currentUp * 2.0f, Color.cyan);
 
-        ///Vector3 currentVelocity = chassis.velocity;
+        Vector3 currentVelocity = chassis.velocity;
         // How much is our current velocity pointing in our current direction?
-        ///float currentSpeed = Vector3.Dot(currentVelocity, currentForward);
-        //Debug.Log("Current speed: " + currentSpeed);
+        float currentSpeed = Vector3.Dot(currentVelocity, currentForward);
+        Debug.Log("Current speed: " + currentSpeed);
 
         Vector3 angularVelocity = chassis.angularVelocity;
         float mass = chassis.mass;
@@ -84,13 +84,13 @@ public class VehicleControl : MonoBehaviour
 
         // Work out how fast we're sliding left/right
         // An compensate according to the grip property
-        // Vector3.Dot(currentVelocity, currentRight);
+         //Vector3.Dot(currentVelocity, currentRight);
         // How much is our current velocity pointing in our right direction? i.e. Are we sliding?
-        ///float slideSpeed = Vector3.Dot(currentVelocity, currentRight);
+        //float slideSpeed = Vector3.Dot(currentVelocity, currentRight);
         //Debug.Log("Slide speed: " + slideSpeed);
         // Apply an impulse to compensate for sliding
-        ///Vector3 gripImp = currentRight * (-slideSpeed * mass * linearGrip);
-        ///chassis.AddForce(gripImp, ForceMode.Impulse);
+       /// Vector3 gripImp = currentRight * (-slideSpeed * mass * linearGrip);
+        //chassis.AddForce(gripImp, ForceMode.Impulse);
 
         // Vector3.Dot(angularVelocity, currentUp);
         // How much is our angularVelocity pointing in our up direction? i.e. Are we spinning?
