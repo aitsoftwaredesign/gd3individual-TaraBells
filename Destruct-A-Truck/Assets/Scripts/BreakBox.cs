@@ -19,10 +19,15 @@ public class BreakBox : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            KeepScore.Score += 5;
+        }
+            if (collision.gameObject.tag == "Player")
+        {
             Debug.Log("CollisionSuccess");
 
             StartCoroutine(Break());
         }
+       
     }
 
     private IEnumerator Break()
