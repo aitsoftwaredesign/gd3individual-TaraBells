@@ -84,21 +84,20 @@ public class VehicleControl : MonoBehaviour
 
         // Work out how fast we're sliding left/right
         // An compensate according to the grip property
-         //Vector3.Dot(currentVelocity, currentRight);
+        
         // How much is our current velocity pointing in our right direction? i.e. Are we sliding?
-        //float slideSpeed = Vector3.Dot(currentVelocity, currentRight);
-        //Debug.Log("Slide speed: " + slideSpeed);
+        float slideSpeed = Vector3.Dot(currentVelocity, currentRight);
+        Debug.Log("Slide speed: " + slideSpeed);
         // Apply an impulse to compensate for sliding
-       /// Vector3 gripImp = currentRight * (-slideSpeed * mass * linearGrip);
-        //chassis.AddForce(gripImp, ForceMode.Impulse);
+      
 
-        // Vector3.Dot(angularVelocity, currentUp);
+        Vector3.Dot(angularVelocity, currentUp);
         // How much is our angularVelocity pointing in our up direction? i.e. Are we spinning?
-        ///float spinSpeed = Vector3.Dot(angularVelocity, currentUp);
-        //Debug.Log("Slide speed: " + slideSpeed);
+        float spinSpeed = Vector3.Dot(angularVelocity, currentUp);
+        Debug.Log("Slide speed: " + slideSpeed);
         // Apply an angular impulse to compensate for spinning
-        ///Vector3 antiSpinImp = currentUp * (-spinSpeed * mass * angularGrip);
-        ///chassis.AddTorque(antiSpinImp, ForceMode.Impulse);
+        Vector3 antiSpinImp = currentUp * (-spinSpeed * mass * angularGrip);
+        chassis.AddTorque(antiSpinImp, ForceMode.Impulse);
     }
 
     void OnCollisionEnter(Collision collision)
