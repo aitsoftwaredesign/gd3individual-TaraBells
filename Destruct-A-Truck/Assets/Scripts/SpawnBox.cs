@@ -30,19 +30,20 @@ public class SpawnBox : MonoBehaviour
         if (ShouldSpawn())
         {
             SpawnBoxes();
-                 }
-        
+            
+        }
+
     }
 
     private void SpawnBoxes()
     {
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
+        
             nextSpawnTime = Time.time + spawnDelay;
-        }
+    
 
         Instantiate(boxPrefab, transform.position, transform.rotation);
-        }
+        
+     }
 
     private bool ShouldSpawn()
     {

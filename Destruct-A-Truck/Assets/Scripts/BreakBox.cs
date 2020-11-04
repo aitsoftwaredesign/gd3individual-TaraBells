@@ -8,6 +8,12 @@ public class BreakBox : MonoBehaviour
     private ParticleSystem BoxExplode;
     public MeshRenderer sr;
 
+
+    private void Update()
+    {
+        Destroy(gameObject, 10);
+    }
+
     private void Awake()
     {
         BoxExplode = GetComponentInChildren <ParticleSystem>();
