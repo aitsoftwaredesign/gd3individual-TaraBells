@@ -28,7 +28,15 @@ public class CountdownTimer : MonoBehaviour
         if(currentTime <= 0)
         {
             currentTime = 0;
-            SceneManager.LoadScene("Level1");
+            if (KeepScore.Score <= 10)
+            {
+                SceneManager.LoadScene("Level1");
+            }
+            else if(KeepScore.Score >= 15)
+            {
+                SceneManager.LoadScene("Level2");
+            }
         }
+        
     }
 }
