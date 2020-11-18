@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8734390043672750812}
   - component: {fileID: 8734390043672750813}
   - component: {fileID: 8734390043672750802}
-  - component: {fileID: 8734390043672750801}
+  - component: {fileID: 5454627055236077262}
   - component: {fileID: 8734390043672750803}
   - component: {fileID: 8734390043672750800}
   m_Layer: 0
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8734390043672750801
+--- !u!114 &5454627055236077262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,14 +94,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8734390043672750806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 111919ff591a79c48beff93c36736d59, type: 3}
+  m_Script: {fileID: 11500000, guid: f4d80ba64f517dc48afd2e3fc755dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceImpulse: 2
-  torqueImpulse: 20
-  onGround: 1
-  linearGrip: 2.5
-  angularGrip: 1.5
+  forceImpulse: 0
+  torqueImpulse: 0
+  linearGrip: 0.2
+  angularGrip: 0.05
+  wheelBase: 1
+  axelWidth: 1
+  suspensionHeight: 0.5
+  wheelRadius: 0.3
+  suspensionStrength: 40
+  suspensionDamping: 2
+  wheelPrefab: {fileID: 8734390044293353935}
 --- !u!65 &8734390043672750803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -203,6 +209,12 @@ PrefabInstance:
 --- !u!4 &8734390044293794305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 434528, guid: 124f7316b67745a4f93dccaa13e7747f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8734390044293442401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8734390044293353935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 129710, guid: 124f7316b67745a4f93dccaa13e7747f,
     type: 3}
   m_PrefabInstance: {fileID: 8734390044293442401}
   m_PrefabAsset: {fileID: 0}
