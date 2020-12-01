@@ -50,5 +50,11 @@ public class SpawnBox : MonoBehaviour
         return Time.time > nextSpawnTime;
     }
 
-   
+ /*  for (int i = 0; i<wheel.Length; i++)
+        {
+            Vector3 wheelPosWs = transform.TransformPoint(wheelPos[i]);
+    wheel[i] = Instantiate(wheelPrefab,
+        wheelPosWs + (-transform.up* suspensionHeight),
+                Quaternion.identity);
+        }*/
 }

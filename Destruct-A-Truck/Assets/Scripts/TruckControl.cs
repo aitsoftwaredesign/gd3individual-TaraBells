@@ -1,15 +1,14 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
-//using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
-public class VehicleController3 : MonoBehaviour
+public class TruckControl : MonoBehaviour
 {
     private float verticalInput;
     private float horizontalInput;
     private Rigidbody chassis;
-    private Vector3[] wheelPos; 
+    private Vector3[] wheelPos;
     private GameObject[] wheel;
 
 
@@ -23,21 +22,9 @@ public class VehicleController3 : MonoBehaviour
     public float wheelRadius;
     public float suspensionStrength;
     public float suspensionDamping;
-    public GameObject wheelPrefab;
-
-    VehicleController3()
-    {
-        forceImpulse = 0.0f;
-        torqueImpulse = 0.0f;
-        linearGrip = 0.2f;
-        angularGrip = 0.05f;
-        wheelBase = 1.0f;
-        axelWidth = 1.0f;
-        suspensionHeight = 0.5f;
-        wheelRadius = 0.3f;
-        suspensionStrength = 40.0f;
-        suspensionDamping = 2.0f;
-    }
+    // public GameObject wheelPrefab;
+    public GameObject ground;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +42,23 @@ public class VehicleController3 : MonoBehaviour
     {
         GetKeys();
     }
+
     void FixedUpdate()
     {
         UpdateWheels();
         UpdateController();
     }
+
+    // Get use input
+    void GetKeys()
+    {
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+    }
+
+
+
 
     void UpdateController()
     {
@@ -119,7 +118,6 @@ public class VehicleController3 : MonoBehaviour
         Vector3 antiSpinImp = -currentUp * (spinSpeed * mass * angularGrip);
         chassis.AddTorque(antiSpinImp, ForceMode.Impulse);
     }
-
     void InitializeWheels()
     {
         wheelPos = new Vector3[4];
@@ -133,17 +131,8 @@ public class VehicleController3 : MonoBehaviour
             (axelWidth * 0.5f * Vector3.right);
         wheelPos[3] = (wheelBase * 0.5f * -Vector3.forward) +
             (axelWidth * 0.5f * -Vector3.right);
-
-
-        for (int i = 0; i < wheel.Length; i++)
-        {
-            Vector3 wheelPosWs = transform.TransformPoint(wheelPos[i]);
-            wheel[i] = Instantiate(wheelPrefab,
-                wheelPosWs + (-transform.up * suspensionHeight),
-                Quaternion.identity);
-        }
-        
     }
+
 
     void UpdateWheels()
     {
@@ -151,29 +140,29 @@ public class VehicleController3 : MonoBehaviour
         // Get the chassis down direction in world space
         Vector3 wd = transform.up;
         // Debug: Draw the position of each wheelPos
-        for(int i = 0; i < wheelPos.Length; i++)
+        for (int i = 0; i < wheelPos.Length; i++)
         {
             // Get the wheel position in world space
             Vector3 wheelPosWs = transform.TransformPoint(wheelPos[i]);
 
             // Draw the ray we are about to cast
-            Debug.DrawRay(wheelPosWs, 
-                -transform.up * totalSuspensionDist, 
+            Debug.DrawRay(wheelPosWs,
+                -transform.up * totalSuspensionDist,
                 Color.magenta);
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(wheelPosWs, 
-                -transform.up, 
+            if (Physics.Raycast(wheelPosWs,
+                -transform.up,
                 out hit, totalSuspensionDist))
-            { 
-                if(hit.distance < totalSuspensionDist)
-                {   
+            {
+                if (hit.distance < totalSuspensionDist)
+                {
                     // Total Force = SuspensionForce - DampingForce 
                     Vector3 diff = hit.point - wheelPosWs;
 
                     // Calculate the suspension force
-                    float suspensionForce = suspensionStrength * 
+                    float suspensionForce = suspensionStrength *
                         (totalSuspensionDist - diff.magnitude);
 
                     // Calculate the damping force. The higher the velocity of the wheelPos point
@@ -184,29 +173,30 @@ public class VehicleController3 : MonoBehaviour
                     float dampingForce = suspensionDamping * dampingScale;
 
                     // Apply the force in the direction of the diff vector and scale by mass
-                    Vector3 force = (suspensionForce + dampingForce) * 
+                    Vector3 force = (suspensionForce + dampingForce) *
                     -diff.normalized * chassis.mass;
                     //Vector3 force = suspensionForce * -diff.normalized * chassis.mass;
-                    chassis.AddForceAtPosition(force, wheelPosWs);  
+                    chassis.AddForceAtPosition(force, wheelPosWs);
                 }
                 // Update the wheel position based on the hit distance
                 wheel[i].transform.position = wheelPosWs +
                         (-transform.up * (hit.distance - wheelRadius));
             }
-            else 
+            else
             {
                 // Update the wheel position
                 wheel[i].transform.position = wheelPosWs +
                         (-transform.up * suspensionHeight);
             }
-
         }
     }
 
-    // Get use input
-    void GetKeys()
+    private void OnCollisionEnter(Collision col)
     {
-        verticalInput = Input.GetAxis("Vertical");
-        horizontalInput = Input.GetAxis("Horizontal");
-    }
+        if (col.gameObject.tag == "Ground")
+        {
+            // Add force. else dont addForce. 
+        }
+         }
 }
+*/
