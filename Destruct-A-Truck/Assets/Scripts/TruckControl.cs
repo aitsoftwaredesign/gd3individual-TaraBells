@@ -1,5 +1,6 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+//using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
@@ -22,9 +23,21 @@ public class TruckControl : MonoBehaviour
     public float wheelRadius;
     public float suspensionStrength;
     public float suspensionDamping;
-    // public GameObject wheelPrefab;
-    public GameObject ground;
-    public GameObject player;
+    public GameObject wheelPrefab;
+
+    TruckControl()
+    {
+        forceImpulse = 0.0f;
+        torqueImpulse = 0.0f;
+        linearGrip = 0.2f;
+        angularGrip = 0.05f;
+        wheelBase = 1.0f;
+        axelWidth = 7.861729f;
+        suspensionHeight = 11.69398f;
+        wheelRadius = 0.929511f;
+        suspensionStrength = 40.0f;
+        suspensionDamping = 2.0f;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -42,23 +55,11 @@ public class TruckControl : MonoBehaviour
     {
         GetKeys();
     }
-
     void FixedUpdate()
     {
         UpdateWheels();
         UpdateController();
     }
-
-    // Get use input
-    void GetKeys()
-    {
-        verticalInput = Input.GetAxis("Vertical");
-        horizontalInput = Input.GetAxis("Horizontal");
-
-    }
-
-
-
 
     void UpdateController()
     {
@@ -118,7 +119,8 @@ public class TruckControl : MonoBehaviour
         Vector3 antiSpinImp = -currentUp * (spinSpeed * mass * angularGrip);
         chassis.AddTorque(antiSpinImp, ForceMode.Impulse);
     }
-    void InitializeWheels()
+
+   void InitializeWheels()
     {
         wheelPos = new Vector3[4];
         wheel = new GameObject[4];
@@ -131,8 +133,15 @@ public class TruckControl : MonoBehaviour
             (axelWidth * 0.5f * Vector3.right);
         wheelPos[3] = (wheelBase * 0.5f * -Vector3.forward) +
             (axelWidth * 0.5f * -Vector3.right);
-    }
 
+
+        for (int i = 0; i < wheel.Length; i++)
+        {
+            Vector3 wheelPosWs = transform.TransformPoint(wheelPos[i]);
+           
+        }
+
+    }
 
     void UpdateWheels()
     {
@@ -188,15 +197,14 @@ public class TruckControl : MonoBehaviour
                 wheel[i].transform.position = wheelPosWs +
                         (-transform.up * suspensionHeight);
             }
+
         }
     }
 
-    private void OnCollisionEnter(Collision col)
+    // Get use input
+    void GetKeys()
     {
-        if (col.gameObject.tag == "Ground")
-        {
-            // Add force. else dont addForce. 
-        }
-         }
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+    }
 }
-*/

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 //using TMPro;
 using UnityEngine;
@@ -46,7 +46,7 @@ public class VehicleController3 : MonoBehaviour
         horizontalInput = 0.0f;
         chassis = gameObject.GetComponent<Rigidbody>();
         // Lower center of mass
-        chassis.centerOfMass = new Vector3(0.0f, -2.0f, 0.0f);
+
         InitializeWheels();
     }
 
@@ -209,4 +209,4 @@ public class VehicleController3 : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
     }
-}
+}*/

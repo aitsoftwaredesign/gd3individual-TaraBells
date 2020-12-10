@@ -8,6 +8,7 @@ public class KeepScore : MonoBehaviour
     // Start is called before the first frame update
   
 
+    //create a GUI box and have it show the text and the int score
     void OnGUI()
     {
         GUI.Box(new Rect(50, 50, 200, 50), "Score is: "  + Score);

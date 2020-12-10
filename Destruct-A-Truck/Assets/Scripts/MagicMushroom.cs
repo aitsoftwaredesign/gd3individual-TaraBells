@@ -5,7 +5,7 @@ using UnityEngine;
 public class MagicMushroom : MonoBehaviour
 {
     public GameObject[] pattern;
-    private int patternIndex = 0;
+    private int pathIndex = 0;
     public float speed = 1;
 
     // Use this for initialization
@@ -18,13 +18,13 @@ public class MagicMushroom : MonoBehaviour
     void Update()
     {
         // Process the current instruction in our control data array
-        GameObject waypoint = pattern[patternIndex];
+        GameObject waypoint = pattern[pathIndex];
 
         // Find the range to close vector
         Vector3 rangeToClose = waypoint.transform.position - transform.position;
 
         // Draw this vector at the position of the enemy
-      //  Debug.DrawRay(transform.position, rangeToClose, Color.cyan);
+        Debug.DrawRay(transform.position, rangeToClose, Color.cyan);
 
         // What's our distance to the waypoint?
         float distance = rangeToClose.magnitude;
@@ -37,15 +37,15 @@ public class MagicMushroom : MonoBehaviour
 
         if (distance <= speedDelta)
         {
-            patternIndex++;
+            pathIndex++;
             // Reset the patternIndex if we are at the end of the instruction array
-            if (patternIndex >= pattern.Length)
+            if (pathIndex >= pattern.Length)
             {
-                patternIndex = 0;
+                pathIndex = 0;
             }
 
             // Process the current instruction in our control data array
-            waypoint = pattern[patternIndex];
+            waypoint = pattern[pathIndex];
 
             // Find the new range to close vector
             rangeToClose = waypoint.transform.position - transform.position;

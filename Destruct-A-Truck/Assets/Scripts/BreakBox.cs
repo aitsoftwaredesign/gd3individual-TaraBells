@@ -21,6 +21,7 @@ public class BreakBox : MonoBehaviour
 
     }
 
+    //detecting collisions using tags
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -35,6 +36,8 @@ public class BreakBox : MonoBehaviour
         }
        
     }
+
+    // this IEnumerator Break () plays the particle system when a box is broken it will last its lifetime then be destroyed
 
     private IEnumerator Break()
     {
