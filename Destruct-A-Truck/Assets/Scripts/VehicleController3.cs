@@ -1,4 +1,4 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 //using TMPro;
 using UnityEngine;
@@ -196,8 +196,7 @@ public class VehicleController3 : MonoBehaviour
             else 
             {
                 // Update the wheel position
-                wheel[i].transform.position = wheelPosWs +
-                        (-transform.up * suspensionHeight);
+                
             }
 
         }
@@ -209,4 +208,4 @@ public class VehicleController3 : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
     }
-}*/
+}

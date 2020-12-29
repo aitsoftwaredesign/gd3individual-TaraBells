@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.974125, y: 11.230538, z: 7.2696524}
-  m_Center: {x: -0.07278856, y: 5.115268, z: -0.2923131}
+  m_Size: {x: 4.974125, y: 23.510023, z: 7.2696524}
+  m_Center: {x: -0.07278856, y: 12.676845, z: -0.2923131}
 --- !u!54 &5311753206778286045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,11 +126,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceImpulse: 5
   torqueImpulse: 3
+  onGround: 0
   linearGrip: 3
   angularGrip: 3
-  suspensionHeight: 5
-  suspensionStrength: 10
-  suspensionDamping: 0
 --- !u!1001 &8734390044293442401
 PrefabInstance:
   m_ObjectHideFlags: 0

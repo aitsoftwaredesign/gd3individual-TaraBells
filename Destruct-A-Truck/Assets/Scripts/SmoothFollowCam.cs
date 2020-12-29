@@ -1,19 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// Place the script in the Camera-Control group in the component menu
+// script in the Camera-Control group in the component menu
 [AddComponentMenu("Camera-Control/Smooth Follow CSharp")]
 
 public class SmoothFollowCam : MonoBehaviour
 {
     /*
-    This camera smoothes out rotation around the y-axis and height.
-    Horizontal Distance to the target is always fixed.
-
-    There are many different ways to smooth the rotation but doing it this way gives you a lot of control over how the camera behaves.
-
-    For every of those smoothed values we calculate the wanted value and the current value.
-    Then we smooth it using the Lerp function.
+    smooth camera using the Lerp function.
     Then we apply the smoothed values to the transform's position.
     */
 
@@ -56,7 +50,7 @@ public class SmoothFollowCam : MonoBehaviour
         // Set the height of the camera
         transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
 
-        // Always look at the target
+        //focus the target 
         transform.LookAt(target);
     }
 }

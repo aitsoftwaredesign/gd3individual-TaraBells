@@ -9,7 +9,7 @@ public class SpawnBox : MonoBehaviour
  //   private int spIndex = 0;
 
     public GameObject[] pattern;
-    private int patternIndex = 0;
+    //private int patternIndex = 0;
 
 
     //I used a serialized field because I wanted to have this because with it being serialized i can view it in the inspector and place this at any time
