@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnBox : MonoBehaviour
 {
     private float nextSpawnTime;
-    public GameObject[] spawnPoints;
+ //  public GameObject[] spawnPoints;
  //   private int spIndex = 0;
 
-    public GameObject[] pattern;
+   // public GameObject[] pattern;
     //private int patternIndex = 0;
 
 
@@ -18,7 +18,6 @@ public class SpawnBox : MonoBehaviour
     [SerializeField]
     private float spawnDelay = 5;
 
-    public GameObject box;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,12 +49,4 @@ public class SpawnBox : MonoBehaviour
     {
         return Time.time > nextSpawnTime;
     }
-
- /*  for (int i = 0; i<wheel.Length; i++)
-        {
-            Vector3 wheelPosWs = transform.TransformPoint(wheelPos[i]);
-    wheel[i] = Instantiate(wheelPrefab,
-        wheelPosWs + (-transform.up* suspensionHeight),
-                Quaternion.identity);
-        }*/
 }

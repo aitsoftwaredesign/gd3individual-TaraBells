@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicMushroom : MonoBehaviour
+
+public class MushroomScore : MonoBehaviour
 {
     public GameObject[] pattern;
     private int pathIndex = 0;
@@ -68,8 +69,8 @@ public class MagicMushroom : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             KeepScore.Score += 5;
-            CountdownTimer.currentTime += 10f;
             Destroy(gameObject);
         }
     }
 }
+
