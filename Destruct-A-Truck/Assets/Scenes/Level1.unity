@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d80ba64f517dc48afd2e3fc755dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceImpulse: 0
+  forceImpulse: 3.62
   torqueImpulse: 0
   linearGrip: 0.2
   angularGrip: 0.05
